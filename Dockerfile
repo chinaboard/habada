@@ -1,4 +1,4 @@
-FROM golang:1.8.2-alpine AS builder
+FROM golang:1.18.2-alpine AS builder
 WORKDIR /go/src/app
 ENV GOPROXY https://goproxy.io,direct
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
