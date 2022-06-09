@@ -32,7 +32,7 @@ function addUrlEntry(n) {
     </div>
   `;
     t.innerHTML = o, t.addEventListener("click", () => {
-      navigator.clipboard.writeText(`${window.location.host}/${e}`);
+      navigator.clipboard.writeText(`https://${window.location.host}/${e}`);
       setTimeout(()=> alert("Copied to clipboard"));
     }), urlList.prepend(t)
 }
