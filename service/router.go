@@ -4,6 +4,8 @@ import (
 	"github.com/chinaboard/habada/service/coder"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
+	"path"
 )
 
 func InitRouter() *gin.Engine {
@@ -18,10 +20,15 @@ func InitRouter() *gin.Engine {
 	}
 
 	r.GET("/:tinyUrl", coder.Redirect)
-	r.GET("/", func(c *gin.Context) {
-		c.Writer.Write([]byte("habada!"))
-		c.Status(http.StatusOK)
+	r.GET("/", func(context *gin.Context) {
+		context.HTML(http.StatusOK, "index.html", nil)
 	})
+
+	cwd, _ := os.Getwd()
+
+	r.LoadHTMLFiles(path.Join(cwd, "view/index.html"))
+	r.Static("/static", path.Join(cwd, "static"))
+	r.StaticFile("/favicon.ico", path.Join(cwd, "static/favicon.ico"))
 
 	return r
 }

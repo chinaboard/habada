@@ -22,9 +22,10 @@ func init() {
 }
 
 func Encode(c *gin.Context) {
+
 	longUrl := c.Query("longUrl")
-	_, err := url.ParseRequestURI(longUrl)
-	if err != nil {
+	uri, err := url.ParseRequestURI(longUrl)
+	if err != nil || uri.Host == c.Request.Host {
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "bad request"})
 		return
 	}
