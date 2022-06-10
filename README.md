@@ -4,13 +4,10 @@ Url shortener
 ![img.png](resource/img.png)
 
 ## Demo site
-[xox.ink](https://xox.ink)
-
-[qwp.ink](https://qwp.ink)
-
-[a0w.net](https://a0w.net)
-
-[c2m.link](https://c2m.link)
+* [xox.ink](https://xox.ink)
+* [qwp.ink](https://qwp.ink)
+* [a0w.net](https://a0w.net)
+* [c2m.link](https://c2m.link)
 
 ## How to run
 
