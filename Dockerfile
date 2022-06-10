@@ -1,6 +1,7 @@
 FROM golang:alpine AS builder
 WORKDIR /go/src/app
 RUN apk add --no-cache ca-certificates make bash git
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 RUN git clone https://github.com/chinaboard/habada.git
 WORKDIR /go/src/app/habada
 RUN bash build-linux-amd64.sh
