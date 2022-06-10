@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/chinaboard/habada/pkg/bininfo"
 	"github.com/chinaboard/habada/service/coder"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -21,7 +22,7 @@ func InitRouter() *gin.Engine {
 
 	r.GET("/:tinyUrl", coder.Redirect)
 	r.GET("/", func(context *gin.Context) {
-		context.HTML(http.StatusOK, "index.html", nil)
+		context.HTML(http.StatusOK, "index.html", gin.H{"BuildTime": bininfo.BuildTime})
 	})
 
 	cwd, _ := os.Getwd()
